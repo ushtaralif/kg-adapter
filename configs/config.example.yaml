@@ -1,0 +1,94 @@
+
+paths:
+  # [server-data] Original gzip dump (space-separated Q P Q triples)
+  wikidata_dump:  "/path/to/wikidata_triples_qpq.gz"   # e.g. /home/ushtar.ali/wikidata_triples_qpq.gz
+
+  # [server-data] LMDB index (built by: scripts/build_index.py)
+  wikidata_index: "/path/to/kg-adapter/data/wikidata/index.lmdb"   # e.g. /home/ushtar.ali/kg-adapter/data/wikidata/index.lmdb
+
+  # [server-data] WikiWebQuestions splits (downloaded by: scripts/download_wwq.py)
+  wwq_train:      "/path/to/kg-adapter/data/raw/train.json"   # e.g. /home/ushtar.ali/kg-adapter/data/raw/train.json
+  wwq_valid:        "/path/to/kg-adapter/data/raw/valid.json"   # e.g. /home/ushtar.ali/kg-adapter/data/raw/dev.json
+  wwq_test:       "/path/to/kg-adapter/data/raw/test.json"   # e.g. /home/ushtar.ali/kg-adapter/data/raw/test.json
+
+  # [server-data] Outputs of data-prep (copy entire processed/ dir to server-gpu)
+  processed_dir:  "/path/to/kg-adapter/data/processed"   # e.g. /home/ushtar.ali/kg-adapter/data/processed
+  embeddings_dir: "/path/to/kg-adapter/data/embeddings"   # e.g. /home/ushtar.ali/kg-adapter/data/embeddings
+
+  # [server-gpu] Training outputs
+  adapter_dir:    "/path/to/kg-adapter/models/adapter"   # e.g. /home/ushtar.ali/kg-adapter/models/adapter
+  checkpoint_dir: "/path/to/kg-adapter/models/checkpoints" #"/path/to/kg-adapter/models/checkpoints/mistral"   # e.g. /home/ushtar.ali/kg-adapter/models/checkpoints
+  log_dir:        "/path/to/kg-adapter/logs"   # e.g. /home/ushtar.ali/kg-adapter/logs
+
+
+models:
+  llama:
+    name: "llama-3-8b"
+    local_path: "/path/to/llama3-8b"     # e.g. /data/models/llama-3-8b
+    hidden_size: 4096
+  mistral:
+    name: "mistral-7b"
+    local_path: "/path/to/mistral-7b"     # e.g. /data/models/mistral-7b
+    hidden_size: 4096
+  active: "llama"               # "llama" or "mistral"
+
+# ── KG Encoder ────────────────────────────────────────────────────────────────
+kg_encoder:
+  entity_emb_dim: 256
+  relation_emb_dim: 256
+  hidden_dim: 512
+  output_dim: 512               # d_kge; projector input dim = 2 * output_dim
+  num_layers: 2
+  dropout: 0.1
+  aggregation: "mean"           # mean | sum | attention
+
+# ── KG Projector ──────────────────────────────────────────────────────────────
+kg_projector:
+  hidden_dim: 256
+  num_layers: 2
+  dropout: 0.1
+  activation: "gelu"
+
+# ── Adapter Injection ─────────────────────────────────────────────────────────
+adapter:
+  injection_mode: "cross_attention"   # cross_attention | prefix | add
+  inject_every_n_layers: 4            # inject at LLM layers 0, 4, 8, …
+  num_kg_tokens: 4                   # soft KG token budget per sample
+  kg_scale_factor: 0.1
+  layer_norm: true
+
+# ── Subgraph ──────────────────────────────────────────────────────────────────
+subgraph:
+  max_triples_per_entity: 50
+  max_total_triples: 200
+  hop: 1
+
+# ── Training ──────────────────────────────────────────────────────────────────
+training:
+  batch_size: 8
+  gradient_accumulation_steps: 1     # effective batch = 32
+  max_length: 512
+  num_epochs: 10
+  warmup_steps: 500
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-2
+  lr_scheduler: "cosine"
+  max_grad_norm: 1.0
+  fp16: false
+  bf16: false                         # RTX4080 + A6000 both support bf16
+  seed: 42
+  save_every_n_steps: 500
+  eval_every_n_steps: 500
+  device: "cuda"
+
+# ── Evaluation ────────────────────────────────────────────────────────────────
+evaluation:
+  metrics: ["exact_match", "f1", "rouge_l"]
+  beam_size: 4
+  max_new_tokens: 64
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+logging:
+  use_wandb: false
+  project_name: "kg-adapter"
+  run_name: "run_001"
