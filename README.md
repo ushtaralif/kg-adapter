@@ -50,8 +50,6 @@ We use **WikiWebQuestions (WWQ)** — a KGQA benchmark with Wikidata SPARQL quer
 - Train: 1,225 questions
 - Validation: 176 questions
 - Test: 352 questions
-Download from the [original source](https://github.com/WebQuestions/WebQuestions) and update paths in `configs/config.yaml`. The Wikidata dump must be downloaded separately and indexed using `src.graph.indexer`.
- 
 ---
 ## Data and Evaluation Results
 
