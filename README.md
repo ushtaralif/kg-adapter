@@ -42,7 +42,25 @@ CUDA_VISIBLE_DEVICES=0 python -m src.training.trainer --config configs/config.ya
 
 # Evaluate
 python -m src.evaluation.evaluator --config configs/config.yaml
+
 ```
+
+### Run Analysis Scripts
+ 
+```bash
+cd src/analysis-v1
+ 
+# GPT 7-point scoring injection analysis
+python analyze-v1.py --input evaluated_final_cleaned_data.json
+ 
+# Hallucination detection injection analysis
+python analyze-v2.py --input evaluated_final_cleaned_data.json --metric no_halluc
+ 
+# GPT 10-point injection analysis
+python analyze-v3.py --input gpt_evaluated_combined-v2.json
+```
+
+
 ## Dataset
  
 We use **WikiWebQuestions (WWQ)** — a KGQA benchmark with Wikidata SPARQL queries.
@@ -88,32 +106,34 @@ Each repo contains:
 kg-adapter/
 ├── src/
 │   ├── adapter/
-│   │   ├── kg_adapter.py       # KGAdapter: frozen LLM + injection
-│   │   ├── kg_encoder.py       # KGEncoder: 2-layer MLP over (S,P,O) triples
-│   │   ├── kg_projector.py     # KGProjector: maps KG embedding to LLM hidden space
-│   │   └── vocab.py            # Vocabulary builder
+│   │   ├── kg_adapter.py            # KGAdapter: frozen LLM + hook-based injection
+│   │   ├── kg_encoder.py            # KGEncoder: 2-layer MLP over (S,P,O) triples
+│   │   ├── kg_projector.py          # KGProjector: maps KG embedding to LLM hidden space
+│   │   └── vocab.py                 # Vocabulary builder
 │   ├── graph/
-│   │   ├── indexer.py          # Wikidata dump LMDB indexer
-│   │   ├── extractor.py        # Triple extractor
-│   │   ├── subgraph.py         # Subgraph builder per sample
-│   │   └── label_fetcher.py    # Wikidata entity label fetcher
+│   │   ├── indexer.py               # Wikidata dump LMDB indexer
+│   │   ├── extractor.py             # Triple extractor
+│   │   ├── subgraph.py              # Subgraph builder per sample
+│   │   └── label_fetcher.py         # Wikidata entity label fetcher
 │   ├── data/
-│   │   ├── dataset.py          # WikiWebQuestions dataset loader
-│   │   └── collator.py         # PyTorch collator
+│   │   ├── dataset.py               # WikiWebQuestions dataset loader
+│   │   └── collator.py              # PyTorch collator
 │   ├── training/
-│   │   └── trainer.py          # Training loop
+│   │   └── trainer.py               # Training loop
 │   ├── evaluation/
-│   │   ├── evaluator.py        # Automatic metrics (TokenMatch, Substr)
-│   │   ├── classify_using_gpt-v2.py  # GPT-based evaluation
-│   │   └── latency_analysis.py
-
+│   │   ├── evaluator.py             # Automatic metrics (Substr and TokMatch)
+│   │   └── classify_using_gpt-v2.py # GPT-based evaluation (7-point + hallucination)
+│   └── analysis-v1/
+│       ├── analyze-v1.py            # GPT 7-point scoring analysis
+│       ├── analyze-v2.py            # Hallucination detection analysis
+│       └── analyze-v3.py            # GPT 10-point combined score analysis
 ├── configs/
-│   └── config.example.yaml     # Configuration template
+│   └── config.example.yaml          # Configuration template
 ├── data/
 │   └── raw/
-│       └── sample.json         # Sample test
-├── kg-adapter.ipynb             # Reproducibility notebook (run on Colab)
-├── requirements.txt
+│       └── sample.json              # Sample test entries with Wikidata triples
+├── kg-adapter.ipynb                  # Reproducibility notebook (run on Colab)
+├── Requirements.txt
 └── README.md
 ```
 
