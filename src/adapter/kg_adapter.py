@@ -16,7 +16,8 @@ class KGAdapter(nn.Module):
         print(f"[KGAdapter] Loading LLM from {local_model_path}")
         self.llm = AutoModelForCausalLM.from_pretrained(
             local_model_path,
-            local_files_only = True,
+            # local_files_only = True,
+            local_files_only=False,
             dtype            = torch.bfloat16,
             device_map       = device,
         )
