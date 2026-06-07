@@ -43,6 +43,29 @@ CUDA_VISIBLE_DEVICES=0 python -m src.training.trainer --config configs/config.ya
 # Evaluate
 python -m src.evaluation.evaluator --config configs/config.yaml
 ```
+## Dataset
+ 
+We use **WikiWebQuestions (WWQ)** — a KGQA benchmark with Wikidata SPARQL queries.
+ 
+- Train: 1,225 questions
+- Validation: 176 questions
+- Test: 352 questions
+Download from the [original source](https://github.com/WebQuestions/WebQuestions) and update paths in `configs/config.yaml`. The Wikidata dump must be downloaded separately and indexed using `src.graph.indexer`.
+ 
+---
+## Data and Evaluation Results
+
+Pre-computed model answers, GPT evaluation scores, and Wikidata structural features for all 352 test samples are available for download:
+
+📁 **[Download from Google Drive](https://drive.google.com/drive/folders/1RZrAL1rgEq-nybMfPFFtpYXC87aZ3PeZ?usp=share_link)**
+
+The folder contains:
+- `llama_answers.json` — LLaMA-3 8B base and adapter answers
+- `mistral_answers.json` — Mistral-7B base and adapter answers
+- `evaluated_final_cleaned_data.json`_ GPT-5.4 evaluation scores (7-point) and Categorical Evaluation along with Wikidata structural features (`entropy_risk`, `num_sitelinks`, `num_statements`, `num_references`, `wikidata_metadata`) for all 352 test entries.
+- `gpt_evaluated_combined-v2.json` — GPT-5.4 evaluation scores (7-point and 10-point) with Wikidata structural features.
+
+These files allow full reproduction of all paper results without running inference.
 
 ---
 
