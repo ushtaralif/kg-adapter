@@ -146,8 +146,10 @@ See `requirements.txt` for the full list.
 ---
 ## License
 
-This project is licensed under the Apache License 2.0.
-© 2026 University of Tsukuba, National Institute of Advanced Industrial Science and Technology (AIST)
+This project is licensed under the Apache License 2.0.        
+
+© 2026 University of Tsukuba, National Institute of Advanced Industrial Science and Technology (AIST)   
+
 See the [LICENSE](LICENSE) file for full details.
 
 ## Citation
