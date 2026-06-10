@@ -144,13 +144,18 @@ kg-adapter/
 See `requirements.txt` for the full list.
 
 ---
+## License
+
+This project is licensed under the Apache License 2.0.
+© 2026 University of Tsukuba, National Institute of Advanced Industrial Science and Technology (AIST)
+See the [LICENSE](LICENSE) file for full details.
 
 ## Citation
 
 ```bibtex
-@article{anonymous2026wheninject,
-  title  = {When to Inject: Selective Knowledge Graph Augmentation for Frozen Large Language Models},
-  author = {Anonymous},
+@article{ali2026wheninject,
+  title  = {When to Inject: Gated Adapter-Based Selective Knowledge Graph Augmentation for Large Language Models},
+  author = {Ali, Ushtar},
   year   = {2026},
 }
 ```
