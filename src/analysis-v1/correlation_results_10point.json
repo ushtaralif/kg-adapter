@@ -1,0 +1,262 @@
+{
+  "llama_base_score": {
+    "entropy": {
+      "n": 352,
+      "pearson_r": -0.0689141182877043,
+      "pearson_p": 0.19709285511781444,
+      "pearson_sig": false,
+      "spearman_rho": -0.09521097386420814,
+      "spearman_p": 0.07442087695494089,
+      "spearman_sig": false
+    },
+    "entropy_risk": {
+      "n": 352,
+      "pearson_r": -0.11455748529286555,
+      "pearson_p": 0.031656402244789245,
+      "pearson_sig": true,
+      "spearman_rho": -0.1521260369925219,
+      "spearman_p": 0.004227694446286514,
+      "spearman_sig": true
+    },
+    "entity_entropy": {
+      "n": 352,
+      "pearson_r": -0.07818723881305817,
+      "pearson_p": 0.14320849719188655,
+      "pearson_sig": false,
+      "spearman_rho": -0.05682059529468251,
+      "spearman_p": 0.287729313788161,
+      "spearman_sig": false
+    },
+    "num_statements": {
+      "n": 352,
+      "pearson_r": 0.16682643785507115,
+      "pearson_p": 0.0016846003435347695,
+      "pearson_sig": true,
+      "spearman_rho": 0.15635508363842346,
+      "spearman_p": 0.003269888862408308,
+      "spearman_sig": true
+    },
+    "num_references": {
+      "n": 352,
+      "pearson_r": 0.16190313271668952,
+      "pearson_p": 0.002312192980174843,
+      "pearson_sig": true,
+      "spearman_rho": 0.19658600966650952,
+      "spearman_p": 0.00020608272785057257,
+      "spearman_sig": true
+    },
+    "num_properties": {
+      "n": 352,
+      "pearson_r": 0.16682643785507115,
+      "pearson_p": 0.0016846003435347695,
+      "pearson_sig": true,
+      "spearman_rho": 0.15635508363842346,
+      "spearman_p": 0.003269888862408308,
+      "spearman_sig": true
+    },
+    "num_sitelinks": {
+      "n": 352,
+      "pearson_r": 0.19840781591490872,
+      "pearson_p": 0.00017929575939853735,
+      "pearson_sig": true,
+      "spearman_rho": 0.20777323028561562,
+      "spearman_p": 8.592378548007455e-05,
+      "spearman_sig": true
+    }
+  },
+  "llama_adapter_score": {
+    "entropy": {
+      "n": 352,
+      "pearson_r": 0.0010351528814375975,
+      "pearson_p": 0.9845602103728965,
+      "pearson_sig": false,
+      "spearman_rho": 0.04690814017490141,
+      "spearman_p": 0.3802545216449017,
+      "spearman_sig": false
+    },
+    "entropy_risk": {
+      "n": 352,
+      "pearson_r": -0.18256197622521403,
+      "pearson_p": 0.0005775305847388699,
+      "pearson_sig": true,
+      "spearman_rho": -0.11132434524427633,
+      "spearman_p": 0.03682544353442663,
+      "spearman_sig": true
+    },
+    "entity_entropy": {
+      "n": 352,
+      "pearson_r": -0.17312294819994867,
+      "pearson_p": 0.001109496620836017,
+      "pearson_sig": true,
+      "spearman_rho": -0.1509282502116673,
+      "spearman_p": 0.00454161549792124,
+      "spearman_sig": true
+    },
+    "num_statements": {
+      "n": 352,
+      "pearson_r": 0.028333776954599734,
+      "pearson_p": 0.5962476088352694,
+      "pearson_sig": false,
+      "spearman_rho": 0.005904766521232397,
+      "spearman_p": 0.9120999634868077,
+      "spearman_sig": false
+    },
+    "num_references": {
+      "n": 352,
+      "pearson_r": -0.004162183463851027,
+      "pearson_p": 0.9379775530340779,
+      "pearson_sig": false,
+      "spearman_rho": -0.012996851589776775,
+      "spearman_p": 0.8080166477121757,
+      "spearman_sig": false
+    },
+    "num_properties": {
+      "n": 352,
+      "pearson_r": 0.028333776954599734,
+      "pearson_p": 0.5962476088352694,
+      "pearson_sig": false,
+      "spearman_rho": 0.005904766521232397,
+      "spearman_p": 0.9120999634868077,
+      "spearman_sig": false
+    },
+    "num_sitelinks": {
+      "n": 352,
+      "pearson_r": -0.036923713916541465,
+      "pearson_p": 0.48986616533150956,
+      "pearson_sig": false,
+      "spearman_rho": -0.019701540256339498,
+      "spearman_p": 0.7126088104807846,
+      "spearman_sig": false
+    }
+  },
+  "mistral_base_score": {
+    "entropy": {
+      "n": 352,
+      "pearson_r": -0.07806590237001723,
+      "pearson_p": 0.14383222836099016,
+      "pearson_sig": false,
+      "spearman_rho": -0.06121240469448467,
+      "spearman_p": 0.25202861542313976,
+      "spearman_sig": false
+    },
+    "entropy_risk": {
+      "n": 352,
+      "pearson_r": -0.1333781662280158,
+      "pearson_p": 0.012255675113619803,
+      "pearson_sig": true,
+      "spearman_rho": -0.14078123289394937,
+      "spearman_p": 0.008167141935645937,
+      "spearman_sig": true
+    },
+    "entity_entropy": {
+      "n": 352,
+      "pearson_r": -0.09198248659035956,
+      "pearson_p": 0.0848413435713498,
+      "pearson_sig": false,
+      "spearman_rho": -0.091833795196354,
+      "spearman_p": 0.08534823411713577,
+      "spearman_sig": false
+    },
+    "num_statements": {
+      "n": 352,
+      "pearson_r": 0.1856031134464155,
+      "pearson_p": 0.0004647386021529403,
+      "pearson_sig": true,
+      "spearman_rho": 0.17453564014069267,
+      "spearman_p": 0.0010082822833667774,
+      "spearman_sig": true
+    },
+    "num_references": {
+      "n": 352,
+      "pearson_r": 0.15183241854198337,
+      "pearson_p": 0.0043027787746514334,
+      "pearson_sig": true,
+      "spearman_rho": 0.14788269073325286,
+      "spearman_p": 0.005436609371827836,
+      "spearman_sig": true
+    },
+    "num_properties": {
+      "n": 352,
+      "pearson_r": 0.1856031134464155,
+      "pearson_p": 0.0004647386021529403,
+      "pearson_sig": true,
+      "spearman_rho": 0.17453564014069267,
+      "spearman_p": 0.0010082822833667774,
+      "spearman_sig": true
+    },
+    "num_sitelinks": {
+      "n": 352,
+      "pearson_r": 0.20050215259356508,
+      "pearson_p": 0.00015253960821447985,
+      "pearson_sig": true,
+      "spearman_rho": 0.1965503389815555,
+      "spearman_p": 0.00020664277257223602,
+      "spearman_sig": true
+    }
+  },
+  "mistral_adapter_score": {
+    "entropy": {
+      "n": 352,
+      "pearson_r": -0.03039388966744161,
+      "pearson_p": 0.569802138778687,
+      "pearson_sig": false,
+      "spearman_rho": -0.024177605533272545,
+      "spearman_p": 0.6512223715392764,
+      "spearman_sig": false
+    },
+    "entropy_risk": {
+      "n": 352,
+      "pearson_r": -0.18130595560269702,
+      "pearson_p": 0.0006311307395246804,
+      "pearson_sig": true,
+      "spearman_rho": -0.1913782206602507,
+      "spearman_p": 0.00030474070646696274,
+      "spearman_sig": true
+    },
+    "entity_entropy": {
+      "n": 352,
+      "pearson_r": -0.15817883480825073,
+      "pearson_p": 0.002921312027367299,
+      "pearson_sig": true,
+      "spearman_rho": -0.13436477299936073,
+      "spearman_p": 0.011622862521273633,
+      "spearman_sig": true
+    },
+    "num_statements": {
+      "n": 352,
+      "pearson_r": 0.08950588299179907,
+      "pearson_p": 0.09360646983882016,
+      "pearson_sig": false,
+      "spearman_rho": 0.08451345359411808,
+      "spearman_p": 0.11346571642262393,
+      "spearman_sig": false
+    },
+    "num_references": {
+      "n": 352,
+      "pearson_r": 0.027969565555559635,
+      "pearson_p": 0.6009802629574559,
+      "pearson_sig": false,
+      "spearman_rho": 0.07673307376200823,
+      "spearman_p": 0.15082082146303738,
+      "spearman_sig": false
+    },
+    "num_properties": {
+      "n": 352,
+      "pearson_r": 0.08950588299179907,
+      "pearson_p": 0.09360646983882016,
+      "pearson_sig": false,
+      "spearman_rho": 0.08451345359411808,
+      "spearman_p": 0.11346571642262393,
+      "spearman_sig": false
+    },
+    "num_sitelinks": {
+      "n": 352,
+      "pearson_r": 0.05475589185359797,
+      "pearson_p": 0.3056340082182028,
+      "pearson_sig": false,
+      "spearman_rho": 0.03874350408107376,
+      "spearman_p": 0.468710261257836,
+      "spearman_sig": false
+    }
+  }
+}
